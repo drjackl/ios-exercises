@@ -12,12 +12,12 @@
 
 - (BOOL) switchesFromBlackAndWhiteToColor {
     /* WORK HERE */
-    return NO;
+    return YES;//NO;
 }
 
 - (NSString *) mainCharacter {
     /* WORK HERE */
-    return @"";
+    return @"Dorothy";//@"";
 }
 
 @end
