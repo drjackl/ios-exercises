@@ -17,15 +17,22 @@
 }
 
 - (NSString *) cheeseNameWithoutCheeseSuffix:(NSString *)cheeseName {
-    NSString *cheeseSuffix = @" cheese";
-    if ([[cheeseName lowercaseString] hasSuffix:cheeseSuffix]) {
-        /* WORK HERE, ASSUMING `cheeseName` ENDS WITH " cheese" */
-        NSRange cheeseRange = [cheeseName rangeOfString:cheeseSuffix options:NSCaseInsensitiveSearch];
-        return [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
-    } else {
-        /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
-        return cheeseName;
-    }
+//    // My original solution
+//    NSString *cheeseSuffix = @" cheese";
+//    if ([[cheeseName lowercaseString] hasSuffix:cheeseSuffix]) {
+//        /* WORK HERE, ASSUMING `cheeseName` ENDS WITH " cheese" */
+//        NSRange cheeseRange = [cheeseName rangeOfString:cheeseSuffix options:NSCaseInsensitiveSearch];
+//        return [cheeseName stringByReplacingCharactersInRange:cheeseRange withString:@""];
+//    } else {
+//        /* WORK HERE, ASSUMING `cheeseName` DOES NOT END WITH " cheese" */
+//        return cheeseName;
+//    }
+    
+    // One-line solution
+    return [cheeseName stringByReplacingOccurrencesOfString:@" cheese"
+                                                 withString:@""
+                                                    options:NSCaseInsensitiveSearch
+                                                      range:NSMakeRange(0, [cheeseName length])];
 
     /*
      (You will learn more about if/else statements in a later checkpoint.)
