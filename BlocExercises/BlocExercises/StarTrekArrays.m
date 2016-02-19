@@ -22,31 +22,31 @@
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    NSMutableArray *mutableCharacterArray = [characterArray mutableCopy];
+    //NSMutableArray *mutableCharacterArray = [characterArray mutableCopy];
     NSSortDescriptor *alphabeticalSortDescriptor = [[NSSortDescriptor alloc]
                                                     initWithKey:nil
                                                     ascending:YES];
-    [mutableCharacterArray sortUsingDescriptors:@[alphabeticalSortDescriptor]];
-    return mutableCharacterArray;//@[];
+    //[mutableCharacterArray sortUsingDescriptors:@[alphabeticalSortDescriptor]];
+    //return mutableCharacterArray;//@[];
+    return [characterArray sortedArrayUsingDescriptors:@[alphabeticalSortDescriptor]];
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE */
-//    BOOL *foundWorf;
-//    *foundWorf = NO;
-//    [characterArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        NSString *character = obj;
+    BOOL __block foundWorf = NO; // __block makes variable persist like static (terminology?)
+    [characterArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *character = obj;
+        if ([character localizedCaseInsensitiveContainsString:@"worf"]) {
+            foundWorf = YES;
+            *stop = YES;
+        }
+    }];
+    return foundWorf;
+//    for (NSString *character in characterArray) {
 //        if ([character localizedCaseInsensitiveContainsString:@"worf"]) {
-//            *foundWorf = YES;
-//            *stop = YES;
-//        }
-//    }];
-//    return *foundWorf ? YES : NO;
-    for (NSString *character in characterArray) {
-        if ([character localizedCaseInsensitiveContainsString:@"worf"])
-            return YES;
-    }
-    return NO;
+//            return YES;
+//    }
+//    return NO;
 }
 
 @end
