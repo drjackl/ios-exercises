@@ -12,21 +12,40 @@
 
 - (NSArray *) arrayOfStarTrekCharactersFromString:(NSString *)characterString {
     /* WORK HERE */
-    return @[];
+    return [characterString componentsSeparatedByString:@";"];//@[];
 }
 
 - (NSString *) stringOfStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @"";
+    return [characterArray componentsJoinedByString:@";"];//@"";
 }
 
 - (NSArray *) alphabeticallySortedStarTrekCharactersFromArray:(NSArray *)characterArray {
     /* WORK HERE */
-    return @[];
+    NSMutableArray *mutableCharacterArray = [characterArray mutableCopy];
+    NSSortDescriptor *alphabeticalSortDescriptor = [[NSSortDescriptor alloc]
+                                                    initWithKey:nil
+                                                    ascending:YES];
+    [mutableCharacterArray sortUsingDescriptors:@[alphabeticalSortDescriptor]];
+    return mutableCharacterArray;//@[];
 }
 
 - (BOOL) characterArrayContainsWorf:(NSArray *)characterArray {
     /* WORK HERE */
+//    BOOL *foundWorf;
+//    *foundWorf = NO;
+//    [characterArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        NSString *character = obj;
+//        if ([character localizedCaseInsensitiveContainsString:@"worf"]) {
+//            *foundWorf = YES;
+//            *stop = YES;
+//        }
+//    }];
+//    return *foundWorf ? YES : NO;
+    for (NSString *character in characterArray) {
+        if ([character localizedCaseInsensitiveContainsString:@"worf"])
+            return YES;
+    }
     return NO;
 }
 
