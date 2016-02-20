@@ -26,6 +26,10 @@
  
  */
 
+@property NSMutableArray* array;
+@property (copy) NSMutableArray* arrayCopy;
+@property CGFloat memoryFloat;
+
 /**
  Indicates a mutable array to remember for later.
  
