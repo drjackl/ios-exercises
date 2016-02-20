@@ -20,7 +20,7 @@
         high = number;
     }
     
-    NSMutableString *answer = [[NSMutableString alloc] initWithCapacity:high-low];
+    NSMutableString *answer = [[NSMutableString alloc] initWithCapacity:high-low]; // also added size
     for (NSInteger n = low; n <= high; n++) { // loop is now inclusive!
         [answer appendFormat:@"%ld", (long)n];
     }
