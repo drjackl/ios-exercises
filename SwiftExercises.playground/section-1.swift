@@ -8,10 +8,11 @@ Strings
 
 func favoriteCheeseStringWithCheese(cheese: String) -> String {
     // WORK HERE
-    return "My favorite cheese is " + cheese
+    return "My favorite cheese is \(cheese)."
 }
 
 let fullSentence = favoriteCheeseStringWithCheese("cheddar")
+"My favorite cheese is cheddar." // expected output
 // Make fullSentence say "My favorite cheese is cheddar."
 
 /*
@@ -66,19 +67,13 @@ let characters = [worf, picard]
 func favoriteDrinksArrayForCharacters(characters:[[String : String]]) -> [String] {
     // return an array of favorite drinks, like ["prune juice", "tea, Earl Grey, hot"]
     // WORK HERE
-    var drinks = [String](count: characters.count, repeatedValue: "")
-    //var drinks = [String](characters.count, "") // this doesn't work
-//    for character in characters {
-//        if let favDrink = character["favorite drink"] {
-//            drinks.append(favDrink)
-//        }
-//    }
-    for var i = 0; i < characters.count; i++ {
-        if let favDrink = characters[i]["favorite drink"] {
-            drinks[i] = favDrink
+    var drinks = [String]()
+    for character in characters {
+        if let favDrink = character["favorite drink"] {
+            drinks.append(favDrink);
         }
     }
-    return drinks//[]
+    return drinks
 }
 
 let favoriteDrinks = favoriteDrinksArrayForCharacters(characters)
