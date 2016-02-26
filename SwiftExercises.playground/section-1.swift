@@ -121,14 +121,24 @@ let strings = ["milk", "eggs", "bread", "challah"]
 
 // WORK HERE - make your function and pass `strings` in
 func arrayToString(array: [String]) -> String {
-    var finalString = ""
-    for var i = 0; i < array.count-1; i++ {
-        finalString += array[i] + ";"
+    if array.count == 0 {
+        return ""
     }
-    finalString += array[array.count-1]
+    var finalString = ""
+//    for var i = 0; i < array.count-1; i++ {
+//        finalString += array[i] + ";"
+//    }
+//    finalString += array[array.count-1]
+    for item in array {
+        finalString += "\(item);"
+    }
+    finalString.removeAtIndex(finalString.endIndex.predecessor())
     return finalString
 }
 arrayToString(strings)
+arrayToString([])
+arrayToString(["fridge"])
+arrayToString(["fridge", "freezer"])
 
 let expectedOutput = "milk;eggs;bread;challah"
 
